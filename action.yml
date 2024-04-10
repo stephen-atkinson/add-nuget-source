@@ -1,0 +1,20 @@
+name: 'Add Nuget Source'
+description: 'Adds the supplied Nuget source'
+inputs:
+  source:
+    required: true
+  username:
+    required: true
+  password:
+    required: true
+runs:
+  using: "composite"
+  steps:
+
+      - name: Ensure NuGet Source
+        run: |
+          dotnet nuget add source ${{ inputs.source }} \
+            -n stephen.atkinson \
+            -u ${{ inputs.username }} \
+            -p ${{ inputs.password }} \
+            --store-password-in-clear-text
