@@ -12,6 +12,7 @@ runs:
   steps:
 
       - name: Ensure NuGet Source
+        shell: bash
         run: |
           dotnet nuget add source ${{ inputs.source }} \
             -n stephen.atkinson \
